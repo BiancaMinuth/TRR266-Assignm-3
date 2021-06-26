@@ -87,8 +87,8 @@ fig_2
 
 ## Results (2/2)
 
+- The results show a positive ERC, statistically significant result on a 10 % level for CAR4d ~ UE.
 - Here, the sectors that were most represented in the dataset are show (No. of companies within industry). 
-- The data shows statistically significant result on a 10 % level for CAR4d ~ UE.
 - Plotting the regression of CAR4d and UE highlighting the different sectors, show a diverse picture which could explain the variation in CAR and UE.
 
 ```{r tab_reg, echo=FALSE}
@@ -116,8 +116,8 @@ fig_5  <- plot(smp_da$quarter, smp_da$CAR4d)
 
 ## Limitations
 
-- ERCs were shown to be an increasing function of the extent an earnings announcement results in a revision in expected earnings (sign: 10% level).
-- The variations be explained by the differences between the sectors and quarters (see Figure IV).
+- ERC was shown to be an increasing function of the extent an earnings announcement results in a revision in expected earnings (sign: 10% level).
+- The variations might be explained by the differences between the sectors and quarters (see Figure IV).
 - Control variables only on a yearly basis possible due to data restrictions.
 - Other estimation windows might extent the robustness of the findings.
 - The cross-sectional variation with regard to industry or company size could be extended. 
