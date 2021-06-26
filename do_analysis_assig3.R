@@ -78,9 +78,7 @@ tab_desc_stat_3 <- df %>%
   )
 
 
-tab_CAR4d_q <- by(df$CAR4d, df$qyear, summary)
-
-
+tab_CAR3d_q <- by(df$CAR3d, df$qyear, summary)
 tab_CAR4d_q <- by(df$CAR4d, df$qyear, summary)
 
 
@@ -128,7 +126,7 @@ fig_6 <- smp_da_ind %>%
 # SAVE OUTPUT
 
 save(
-  list = c("smp_da", "smp_da_ind", "smp_da_ind_q4", "tab_CAR4d_q", "tab_desc_stat", "CAR3d_sum", "CAR4d_sum", "tab_reg_simple", "tab_reg_1", "tab_desc_stat", "tab_desc_stat_1", "tab_desc_stat_2", "tab_desc_stat_3",ls(pattern = "fig_*"), ls(pattern = "tab_*")),
+  list = c("smp_da", "smp_da_ind", "smp_da_ind_q4", "tab_CAR4d_q", "tab_CAR4d_q", "tab_desc_stat", "tab_reg_simple", "tab_reg_1", "tab_desc_stat", "tab_desc_stat_1", "tab_desc_stat_2", "tab_desc_stat_3",ls(pattern = "fig_*"), ls(pattern = "tab_*")),
   file = "output/results.rda"
 )
 
