@@ -87,7 +87,7 @@ tab_CAR4d_q <- by(df$CAR4d, df$qyear, summary)
 # regression
 
 tab_reg_simple <- lm(formula = df$CAR4d ~ df$UE)
-summary(reg_simple)
+summary(tab_reg_simple)
 plot(reg_simple)
 
 tab_reg_1 <- lm(formula = df$CAR4d ~ df$UE + df$qyear + df$hsiccd)
