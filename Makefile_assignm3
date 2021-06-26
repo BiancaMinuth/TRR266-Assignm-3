@@ -1,0 +1,31 @@
+# If you are new to Makefiles: https://makefiletutorial.com
+
+
+PRESENTATION := output/presentation.pdf
+
+TARGETS :=  $(PRESENTATION)
+
+
+GENERATED_DATA := data/generated/assignment_3_sp500_output.csv
+
+RESULTS := output/results.rda
+
+
+RSCRIPT := Rscript --encoding=UTF-8
+
+.phony: all clean very-clean dist-clean
+
+all: $(TARGETS)
+
+clean:
+	rm -f $(TARGETS)
+	rm -f $(RESULTS)
+	rm -f $(GENERATED_DATA)
+	
+
+$(GENERATED_DATA): $(WRDS_DATA) $(EXTERNAL_DATA) code/R/do_analysis_assig3.R
+	$(RSCRIPT) code/R/prepare_data.R
+
+
+$(PRESENTATION): doc/Assignm3_.rmd $(RESULTS); render("doc/Assignm3_.Rmd")'
+	mv doc/presentation.html output
