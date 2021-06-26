@@ -86,10 +86,10 @@ fig_2
 
 
 ## Results (2/2)
-
 - The results show a positive ERC, statistically significant result on a 10 % level for CAR4d ~ UE.
-- Here, the sectors that were most represented in the dataset are show (No. of companies within industry). 
-- Plotting the regression of CAR4d and UE highlighting the different sectors, show a diverse picture which could explain the variation in CAR and UE.
+- CAR [-3;0] on a 4-day-window level turned out to be more representative, thus the following regression refers to CAR4d. 
+- The sectors that were most represented in the dataset are show in the figure (No. of companies within the respective sector). 
+- Plotting the regression of CAR4d and UE highlighting the different sectors and quarters show a diverse picture which could explain the variation in CAR and UE.
 
 ```{r tab_reg, echo=FALSE}
 summary(tab_reg_simple)
