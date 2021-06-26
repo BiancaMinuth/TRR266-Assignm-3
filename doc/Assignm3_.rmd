@@ -1,0 +1,141 @@
+---
+title: "Cross-sectional variation in the earnings response coefficient: Current evidence from S&P500 companies"
+author: "Bianca Minuth"
+institute: "TRR 266 Accounting for Transparency"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+fontsize: "4pt"
+output: html_document
+# slidy_presentation
+
+
+#powerpoint_presentation
+
+
+  #   beamer_presentation: 
+    # latex_engine: xelatex # pdflatex creates rastered fonts
+     # slide_level: 3
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  cache = FALSE, echo = FALSE, message = FALSE, warning = FALSE,  comment = '', fig.width = 5, fig.height = 5
+)
+library(ggplot2)
+library("gplots")
+library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(ExPanDaR)
+library(readxl)
+library(knitr)
+library(stargazer)
+library(kableExtra)
+load("output/results.rda")
+
+
+```
+
+
+## Earnings Response Coefficient & Estimation
+
+- Earnings Response Coefficient (ERC) measures the response of stock prices to earnings announcements and is the stock price change associated with an unexpected earnings change. 
+- ERCs are expected to be an increasing function of the extent an earnings announcement results in a revision in expected earnings and a decreasing function of the expected rate of return. 
+- CAR = a + bUX, + e; where CAR is a measure of risk-adjusted return for security i cumulated over period t, UX is a measure of unexpected earnings; and b as ERC
+
+- Sample: WRDS Data (Compustat, CRSP, I/B/E/S) from 11/2019 - 12/2020
+- Estimation: 
+  1. Cumulative Abnormal Returns (CAR) around the earnings announcements (event date)
+     - with a 3-day-window of CAR[-1;1]
+     - with a 4-day-window of CAR[-3;0]
+     - both with an estimation window of 250 trading days prior to the event date
+     - S&P500 price change as a benchmark
+  2. Unexpected earnings as actual annouced EPS minus analyst’s (first) estimation prior to the annoucement
+
+## Results (1/2)
+
+```{r tab_descriptives_sample_1, result='asis', echo=FALSE}
+tab_desc_stat_1
+```
+
+```{r tab_descriptives_sample_2, result='asis', echo=FALSE}
+tab_desc_stat_2
+```
+
+```{r tab_descriptives_sample_3, result='asis', echo=FALSE}
+tab_desc_stat_3
+```
+
+```{r tab_descriptives_sample, result='asis', echo=FALSE, bootstrap_options = "stripped", font_size = 10, full_width = F}
+tab_desc_stat
+
+```
+
+
+
+```{r CAR4d_UE}
+fig_1 <- plot(smp_da$CAR4d,smp_da$UE)
+abline(tab_reg_simple, col = "black")
+```
+
+```{r CAR3d_CAR4d_UE}
+fig_2
+'The CAR [-3;0] on a 4-day-window level turned out to be more representative, thus the following regression refers to CAR4d.'
+
+```
+
+
+## Results (2/2)
+
+- Here, the sectors that were most represented in the dataset are show (No. of companies within industry). 
+- The data shows statistically significant result on a 10 % level for CAR4d ~ UE.
+- Plotting the regression of CAR4d and UE highlighting the different sectors, show a diverse picture which could explain the variation in CAR and UE.
+
+```{r tab_reg, echo=FALSE}
+summary(tab_reg_simple)
+
+```
+
+
+```{r CAR4d_ind}
+fig_3
+```
+
+
+```{r CAR4d_UE_quarter}
+fig_4
+```
+
+
+```{r CAR4d_quarter}
+fig_5  <- plot(smp_da$quarter, smp_da$CAR4d)
+
+```
+
+
+
+## Limitations
+
+- ERCs were shown to be an increasing function of the extent an earnings announcement results in a revision in expected earnings (sign: 10% level).
+- The variations be explained by the differences between the sectors and quarters (see Figure IV).
+- Control variables only on a yearly basis possible due to data restrictions.
+- Other estimation windows might extent the robustness of the findings.
+- The cross-sectional variation with regard to industry or company size could be extended. 
+
+```{r CAR_UE_q, fig.width=1, fig.height=1}
+tab_CAR4d_q
+
+```
+
+
+```{r CAR4d_ind_quarter}
+fig_6
+```
+
+## References
+- Bissessur, S. W., and Veenman, D. 2016. “Analyst Information Precision and Small Earnings Surprises.” Review of Accounting Studies 21 (4): 1327–60. https://EconPapers.repec.org/RePEc:spr:reaccs:v:21:y:2016:i:4:d: 10.1007_s11142-016-9370-2. 
+- Collins, D. W., and Kothari, S. P.  1989. “An Analysis of Intertemporal and Cross-Sectional Determinants of Earnings Response Coefficients.” Journal of Accounting and Economics 11 (2): 143–81. https://doi.org/https://doi.org/10.1016/0165-4101(89)90004-9. 
+- Easton, P. D., and Zmijewski, E. M. 1989. “Cross-Sectional Variation in the Stock Market Response to Accounting Earnings Announcements.” Journal of Accounting and Economics 11 (2): 117–41. https://doi.org/https://doi.org/10.1016/0165-4101(89)90003-7.
+- Kothari, S. P., Sloan, R. G. 1992. “Information in prices about future earnings: Implications for earnings response coefficients.” Journal of Accounting and Economics 15 (2-3): 143-171. https://doi.org/10.1016/0165-4101(92)90016-U
+- Teets, W. R., and Wasley., C. E. 1996. “Estimating Earnings Response Coefficients: Pooled Versus Firm-Specific Models.” Journal of Accounting and Economics 21 (3): 279–95. https://EconPapers.repec.org/RePEc:eee:jaecon:v:21:y:1996:i:3:p: 279-295.
+
