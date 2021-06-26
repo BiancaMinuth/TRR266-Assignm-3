@@ -107,13 +107,6 @@ fig_4
 ```
 
 
-```{r CAR4d_quarter}
-fig_5  <- plot(smp_da$quarter, smp_da$CAR4d)
-
-```
-
-
-
 ## Limitations
 
 - ERC was shown to be an increasing function of the extent an earnings announcement results in a revision in expected earnings (sign: 10% level).
