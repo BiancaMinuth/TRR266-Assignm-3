@@ -102,8 +102,8 @@ fig_2
 - Plotting the regression of CAR4d and UE highlighting the different sectors at Q42020, show a diverse picture which could explain the variation in CAR and UE.
 
 ```{r tab_reg, echo=FALSE}
+summary(tab_reg_simple)
 summary(tab_reg_1)
-
 ```
 
 
