@@ -53,7 +53,7 @@ load("output/results.rda")
   2. Unexpected earnings as actual annouced EPS minus analysts' (first) estimation prior to the annoucement
 
 ## ERC & Determinants
-- Influencing determinats for variations in ERC could be:
+- Influencing determinants for variations in ERC could be:
   - Increasing risk (beta) > Decreasing ERC
   - Increasing debt > Decreasing ERC
   - Increasing growth > Increasing ERC
