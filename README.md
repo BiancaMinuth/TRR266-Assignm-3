@@ -7,7 +7,5 @@ How to replicate my analysis?
 
 1. Copy the link from the github repro: https://github.com/BiancaMinuth/TRR266-Assignm-3.git
 2. Open R Studio --> file --> go to new project --> version control --> git --> paste the link and give it a project directory name --> create project
-3. In this project environment in R: Open "do_analysis_assig3.R" 
-4. If not installed yet, install all the packages listed there and open the libraries
-5. run the code
-6. Open "Assignm3_.rmd" and klick on "Knit"
+3. In this project environment in R: Open "do_analysis_assig3.R" --> If not installed yet, install all the packages listed there and open the libraries --> run the code
+4. In this project environment in R: Open "Assignm3_.rmd" --> klick on "Knit"
